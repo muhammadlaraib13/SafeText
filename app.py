@@ -6,7 +6,7 @@ from sklearn.naive_bayes import MultinomialNB
 APP_NAME = "SafeText"
 
 st.set_page_config(
-    page_title=f"{APP_NAME} | Message Safety Checker",
+    page_title=f"{APP_NAME} | Text & Link Safety Checker",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -91,6 +91,12 @@ st.markdown(
             color: #f8fafc;
             line-height: 1.55;
         }
+        .section-label {
+            color: #0f172a !important;
+            font-weight: 700 !important;
+            font-size: 1rem !important;
+            margin-bottom: 0.35rem !important;
+        }
         .result-safe {
             width: 100%;
             background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
@@ -122,16 +128,29 @@ st.markdown(
         .stTextArea textarea {
             background-color: #ffffff !important;
             color: #0f172a !important;
+            caret-color: #0f172a !important;
             font-size: 1.05rem !important;
             line-height: 1.55 !important;
             border-radius: 12px !important;
             border: 2px solid #6366f1 !important;
         }
+        .stTextArea textarea::placeholder {
+            color: #64748b !important;
+            opacity: 1 !important;
+        }
         .stButton > button {
             width: 100% !important;
+            background-color: #ffffff !important;
+            color: #0f172a !important;
+            border: 2px solid #6366f1 !important;
             border-radius: 12px !important;
             min-height: 2.85rem !important;
             font-weight: 700 !important;
+        }
+        .stButton > button:hover {
+            background-color: #eef2ff !important;
+            color: #1e1b4b !important;
+            border-color: #4338ca !important;
         }
         .stButton > button[kind="primary"] {
             background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%) !important;
@@ -139,6 +158,10 @@ st.markdown(
             border: none !important;
             min-height: 3.05rem !important;
             font-size: 1.05rem !important;
+        }
+        .stButton > button[kind="primary"]:hover {
+            filter: brightness(1.06);
+            color: #ffffff !important;
         }
     </style>
     """,
@@ -166,14 +189,14 @@ st.markdown(
     f"""
     <div class="top-banner">
         <h1>🛡️ {APP_NAME}</h1>
-        <p>How it works: Paste any SMS, email, or link below, and SafeText checks its words and patterns to show whether it looks safe or like a scam.</p>
+        <p>Paste any SMS, email, or link below to quickly check whether it looks safe or like a scam.</p>
     </div>
     """,
     unsafe_allow_html=True,
 )
 
 # Sample Buttons
-st.markdown("**Try a Sample Message**")
+st.markdown('<p class="section-label">Try a Sample Message</p>', unsafe_allow_html=True)
 c1, c2, c3, c4 = st.columns([1.15, 1.15, 1.15, 0.75])
 with c1:
     st.button(
@@ -200,8 +223,10 @@ with c4:
     )
 
 # Input Box & Check Button
+st.markdown('<p class="section-label">Paste or Type Message Here</p>', unsafe_allow_html=True)
 st.text_area(
     "Paste or Type Message Here",
+    label_visibility="collapsed",
     key="msg_box",
     height=140,
     placeholder="Type or paste an SMS, email, or link here...",
