@@ -6,7 +6,7 @@ from sklearn.naive_bayes import MultinomialNB
 APP_NAME = "SafeText"
 
 st.set_page_config(
-    page_title=f"{APP_NAME} | Text & Link Safety Checker",
+    page_title=f"{APP_NAME} | Message Safety Checker",
     page_icon="🛡️",
     layout="wide",
     initial_sidebar_state="expanded",
