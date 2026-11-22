@@ -138,30 +138,57 @@ st.markdown(
             color: #64748b !important;
             opacity: 1 !important;
         }
-        .stButton > button {
+
+        /* Secondary buttons: crisp white card with dark bold text in both Light & Dark theme */
+        div[data-testid="stButton"] > button[kind="secondary"],
+        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"],
+        .stButton > button:not([kind="primary"]) {
             width: 100% !important;
             background-color: #ffffff !important;
+            background: #ffffff !important;
             color: #0f172a !important;
-            border: 2px solid #6366f1 !important;
+            border: 2px solid #4f46e5 !important;
             border-radius: 12px !important;
-            min-height: 2.85rem !important;
+            min-height: 2.9rem !important;
             font-weight: 700 !important;
+            opacity: 1 !important;
         }
-        .stButton > button:hover {
+        div[data-testid="stButton"] > button[kind="secondary"] *,
+        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"] *,
+        .stButton > button:not([kind="primary"]) * {
+            color: #0f172a !important;
+            fill: #0f172a !important;
+            opacity: 1 !important;
+        }
+        div[data-testid="stButton"] > button[kind="secondary"]:hover,
+        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"]:hover,
+        .stButton > button:not([kind="primary"]):hover {
             background-color: #eef2ff !important;
+            background: #eef2ff !important;
             color: #1e1b4b !important;
-            border-color: #4338ca !important;
+            border-color: #3730a3 !important;
         }
+
+        /* Primary button: rich blue-purple gradient with crisp white text */
+        div[data-testid="stButton"] > button[kind="primary"],
+        div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"],
         .stButton > button[kind="primary"] {
+            width: 100% !important;
             background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%) !important;
             color: #ffffff !important;
             border: none !important;
-            min-height: 3.05rem !important;
+            border-radius: 12px !important;
+            min-height: 3.1rem !important;
             font-size: 1.05rem !important;
+            font-weight: 700 !important;
+            opacity: 1 !important;
         }
-        .stButton > button[kind="primary"]:hover {
-            filter: brightness(1.06);
+        div[data-testid="stButton"] > button[kind="primary"] *,
+        div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"] *,
+        .stButton > button[kind="primary"] * {
             color: #ffffff !important;
+            fill: #ffffff !important;
+            opacity: 1 !important;
         }
     </style>
     """,
