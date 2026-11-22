@@ -139,56 +139,44 @@ st.markdown(
             opacity: 1 !important;
         }
 
-        /* Secondary buttons: crisp white card with dark bold text in both Light & Dark theme */
-        div[data-testid="stButton"] > button[kind="secondary"],
-        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"],
-        .stButton > button:not([kind="primary"]) {
+        /* High-contrast buttons that stay visible regardless of Streamlit theme */
+        .stButton button,
+        [data-testid="baseButton-secondary"],
+        [data-testid="baseButton-primary"] {
             width: 100% !important;
-            background-color: #ffffff !important;
-            background: #ffffff !important;
-            color: #0f172a !important;
-            border: 2px solid #4f46e5 !important;
             border-radius: 12px !important;
-            min-height: 2.9rem !important;
+            min-height: 2.95rem !important;
             font-weight: 700 !important;
+            background-color: #312e81 !important;
+            color: #ffffff !important;
+            border: 2px solid #818cf8 !important;
             opacity: 1 !important;
         }
-        div[data-testid="stButton"] > button[kind="secondary"] *,
-        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"] *,
-        .stButton > button:not([kind="primary"]) * {
-            color: #0f172a !important;
-            fill: #0f172a !important;
+        .stButton button p,
+        .stButton button span,
+        .stButton button div,
+        [data-testid="baseButton-secondary"] p,
+        [data-testid="baseButton-secondary"] span,
+        [data-testid="baseButton-primary"] p,
+        [data-testid="baseButton-primary"] span {
+            color: #ffffff !important;
+            -webkit-text-fill-color: #ffffff !important;
             opacity: 1 !important;
         }
-        div[data-testid="stButton"] > button[kind="secondary"]:hover,
-        div[data-testid="stButton"] > button[data-testid="stBaseButton-secondary"]:hover,
-        .stButton > button:not([kind="primary"]):hover {
-            background-color: #eef2ff !important;
-            background: #eef2ff !important;
-            color: #1e1b4b !important;
-            border-color: #3730a3 !important;
+        .stButton button:hover,
+        [data-testid="baseButton-secondary"]:hover {
+            background-color: #4338ca !important;
+            color: #ffffff !important;
+            border-color: #a5b4fc !important;
         }
-
-        /* Primary button: rich blue-purple gradient with crisp white text */
-        div[data-testid="stButton"] > button[kind="primary"],
-        div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"],
-        .stButton > button[kind="primary"] {
-            width: 100% !important;
-            background: linear-gradient(90deg, #2563eb 0%, #7c3aed 100%) !important;
+        .stButton button[kind="primary"],
+        [data-testid="baseButton-primary"] {
+            background: linear-gradient(90deg, #2563eb 0%, #db2777 100%) !important;
+            background-color: #2563eb !important;
             color: #ffffff !important;
             border: none !important;
-            border-radius: 12px !important;
-            min-height: 3.1rem !important;
+            min-height: 3.15rem !important;
             font-size: 1.05rem !important;
-            font-weight: 700 !important;
-            opacity: 1 !important;
-        }
-        div[data-testid="stButton"] > button[kind="primary"] *,
-        div[data-testid="stButton"] > button[data-testid="stBaseButton-primary"] *,
-        .stButton > button[kind="primary"] * {
-            color: #ffffff !important;
-            fill: #ffffff !important;
-            opacity: 1 !important;
         }
     </style>
     """,
